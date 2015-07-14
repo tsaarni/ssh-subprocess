@@ -1,0 +1,11 @@
+language: python
+python:
+  - "2.7"
+  - "3.4"
+before_script:
+  - ssh-keygen -f ~/.ssh/id_rsa -N ""
+  - cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
+  - eval $(ssh-agent)
+  - ssh-add
+script:
+  python setup.py test
